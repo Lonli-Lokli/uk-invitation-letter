@@ -1,0 +1,9 @@
+{
+  "name": "form-wizard",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "src/components/form-wizard/src",
+  "projectType": "library",
+  "tags": [],
+  "// targets": "to see all targets run: nx show project form-wizard --web",
+  "targets": {}
+}
