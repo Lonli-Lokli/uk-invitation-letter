@@ -1,6 +1,9 @@
+import Button from '@mui/material/Button';
 import styled from 'styled-components';
 
-export const StyledFunding = styled.div``;
+export const StyledFunding = styled.div`
+  padding: 5px;
+`;
 
 export const StyledArticle = styled.article`
   display: flex;
@@ -18,6 +21,7 @@ export const StyledImage = styled.img`
 
 export const StyledDescription = styled.span`
   color: rgba(221, 214, 214);
+  padding: 10px;
   @media screen and (max-width: 999px) {
     display: none;
   }
@@ -26,4 +30,8 @@ export const StyledDescription = styled.span`
 export const StyledTimestamp = styled.span`
   margin-left: auto;
   color: rgba(221, 214, 214);
+`;
+
+export const StyledButton = styled(Button)`
+  padding: 10px;
 `;

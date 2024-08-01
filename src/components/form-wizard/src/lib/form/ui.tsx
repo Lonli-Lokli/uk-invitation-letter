@@ -189,6 +189,9 @@ export const FormWizard: React.FC = () => {
                         onChange={(date: Dayjs | null) =>
                           setFieldValue('trip.arrivalDate', date)
                         }
+                        slots={{
+                          textField: (params) => <TextField {...params} fullWidth required />
+                        }}
                       />
                     </Grid>
                     <Grid item xs={12} sm={6}>
@@ -198,6 +201,9 @@ export const FormWizard: React.FC = () => {
                         onChange={(date: Dayjs | null) =>
                           setFieldValue('trip.departureDate', date)
                         }
+                        slots={{
+                          textField: (params) => <TextField {...params} fullWidth required />
+                        }}
                       />
                     </Grid>
                     <Grid item xs={12}>
@@ -219,7 +225,7 @@ export const FormWizard: React.FC = () => {
                     </Grid>
                     <Grid item xs={12}>
                       <Autocomplete
-                        options={countries}
+                        options={countries.map(country => country.name)}
                         renderInput={(params) => (
                           <TextField {...params} label="Return Country" />
                         )}

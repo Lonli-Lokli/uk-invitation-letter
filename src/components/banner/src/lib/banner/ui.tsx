@@ -1,10 +1,13 @@
 import {
   StyledArticle,
+  StyledButton,
   StyledDescription,
   StyledFunding,
   StyledImage,
 } from './styles';
+import { openContactModalClicked } from './model';
 
+const onOpenContactModalClicked = () => openContactModalClicked();
 export function Banner() {
   return (
     <StyledFunding>
@@ -25,6 +28,13 @@ export function Banner() {
             width="174"
           />
         </a>
+        <StyledButton
+          variant="outlined"
+          color="secondary"
+          onClick={onOpenContactModalClicked}
+        >
+          Contact
+        </StyledButton>
       </StyledArticle>
     </StyledFunding>
   );
