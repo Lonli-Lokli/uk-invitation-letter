@@ -35,7 +35,7 @@ export const ContactFormModal: FC = () => {
           Contact me
         </Typography>
         <form
-          action="https://formsubmit.co/lonli.lokli@gmail.com"
+          action="https://formsubmit.co/4aa7fcc39662f7586c67799b921c4889"
           method="POST"
         >
           <Grid container spacing={2}>
