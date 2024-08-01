@@ -67,11 +67,15 @@ function addIfElse(condition: boolean, ifTrue: string, ifFalse: string) {
 
 const defaultValues = ['they', 'them', 'their'];
 function parsePronoun(pronoun: string, part: 1 | 2 | 3) {
-  return pronoun.split('/')[part - 1] ?? defaultValues[part - 1];
+  return lowercase(pronoun.split('/')[part - 1] ?? defaultValues[part - 1]);
 }
 
 function capitalize(input: string) {
   return input.replace(/^\w/, (c) => c.toUpperCase());
+}
+
+function lowercase(input: string) {
+  return input.replace(/^\w/, (c) => c.toLowerCase());
 }
 
 function extractShortNames(fullName: string) {
@@ -132,8 +136,8 @@ ${addIfElse(
   )} trip to the UK ${extractShortNames(args.personOutsideUK.fullName)} will ` +
     addIfElse(
       isDefined(args.trip.returnCountry),
-      `return to ${args.trip.returnCountry}`,
-      `leave the UK ${args.trip.returnReason}`
+      `return to ${args.trip.returnCountry}.`,
+      `leave the UK ${args.trip.returnReason}.`
     ),
   ''
 )}

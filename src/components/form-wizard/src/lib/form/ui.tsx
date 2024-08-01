@@ -126,7 +126,7 @@ export const FormWizard: React.FC = () => {
                         as={TextField}
                         fullWidth
                         name="personOutsideUK.pronoun"
-                        placeholder='eg they/them/their'
+                        placeholder='eg they/them/their or she/her/her'
                         label="Pronoun"
                       />
                     </Grid>
@@ -220,6 +220,7 @@ export const FormWizard: React.FC = () => {
                         as={TextField}
                         fullWidth
                         name="trip.returnReason"
+                        placeholder={`eg 'to travel to the USA'`}
                         label="Return Reason"
                       />
                     </Grid>
