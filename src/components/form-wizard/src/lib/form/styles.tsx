@@ -4,5 +4,3 @@ import styled from 'styled-components';
 export const StyledButton = styled(Button)`
   margin: 10px !important;
 `;
-
-export const StyledFormWizard = styled.div``;

@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { LocalizationProvider } from '@mui/x-date-pickers';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import Grid from '@mui/material/Grid';
-import { Banner, ContactFormModal } from '@uk-letter/banner';
+import { Banner, ContactFormModal, Disclaimer } from '@uk-letter/banner';
 import Container from '@mui/material/Container';
 import { FormWizard } from '@uk-letter/form-wizard';
 
@@ -17,6 +17,7 @@ export function App() {
         <Grid container>
           <Grid item xs={12}>
             <Banner />
+            <Disclaimer />
             <ContactFormModal />
           </Grid>
         </Grid>
