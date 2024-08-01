@@ -30,6 +30,7 @@ export function Banner() {
         </a>
         <StyledButton
           variant="outlined"
+          className='test'
           color="secondary"
           onClick={onOpenContactModalClicked}
         >

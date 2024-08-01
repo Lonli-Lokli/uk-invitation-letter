@@ -33,5 +33,5 @@ export const StyledTimestamp = styled.span`
 `;
 
 export const StyledButton = styled(Button)`
-  padding: 10px;
+  margin-left: 10px !important
 `;
