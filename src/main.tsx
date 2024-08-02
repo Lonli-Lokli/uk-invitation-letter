@@ -1,10 +1,13 @@
 import { StrictMode } from 'react';
 import * as ReactDOM from 'react-dom/client';
-import { inject } from '@vercel/analytics';
+import { inject as injectAnalytics } from '@vercel/analytics';
+import { injectSpeedInsights } from '@vercel/speed-insights';
+ 
 
 import { App } from './app/app';
 
-inject();
+injectAnalytics();
+injectSpeedInsights();
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
