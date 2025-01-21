@@ -28,7 +28,7 @@
     "@vis.gl/react-google-maps": "1.1.0",
     "dayjs": "^1.11.12",
     "effector": "23.2.3",
-    "effector-react": "23.2.3",
+    "effector-react": "23.3.0",
     "file-saver": "^2.0.5",
     "formik": "^2.4.6",
     "react": "18.3.1",
