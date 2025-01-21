@@ -21,11 +21,19 @@ export function App() {
             <ContactFormModal />
           </Grid>
         </Grid>
-        <Grid item xs={12}>
-          <Container maxWidth="md">
-              <FormWizard />
-          </Container>
-        </Grid>
+        <Container 
+          maxWidth="lg"
+          sx={{ 
+            px: { xs: 2, sm: 3, md: 4 },
+            py: { xs: 3, sm: 4 },
+            '@media (min-width: 1200px)': {
+              maxWidth: '90vw !important',
+              px: 6
+            }
+          }}
+        >
+          <FormWizard />
+        </Container>
       </LocalizationProvider>
     </StyledApp>
   );

@@ -14,7 +14,8 @@ export const initialValues: FormValues = {
     },
     phone: '',
     email: '',
-    employer: {
+    status: 'employed',
+    organization: {
       name: '',
       address: {
         flatNumber: '',

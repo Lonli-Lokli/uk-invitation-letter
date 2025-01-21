@@ -14,7 +14,8 @@ export interface FormValues {
     address: Address;
     phone: string;
     email: string;
-    employer: {
+    status: 'employed' | 'self-employed' | 'student' | 'retired' | 'unemployed' | 'other';
+    organization: {
       name: string;
       address: Address;
     };

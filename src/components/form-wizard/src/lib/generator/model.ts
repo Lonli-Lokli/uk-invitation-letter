@@ -1,5 +1,5 @@
 import { generate } from '@pdfme/generator';
-import { createEffect, createEvent, sample, Unit } from 'effector';
+import { createEffect, createEvent, sample } from 'effector';
 import { FONT_DATA, TEMPLATE_DATA, TemplateData } from './shapes';
 import FileSaver from 'file-saver';
 import dayjs from 'dayjs';
@@ -84,14 +84,35 @@ function extractShortNames(fullName: string) {
     .map((s) => s.trim().split(' ')[0] ?? s.trim())
     .join(' and ');
 }
+
+function buildStatusText(args: UnitOf<typeof pdfGenerateRequired>): string {
+  switch (args.personUK.status) {
+    case 'employed':
+      return `I am currently employed at ${args.personUK.organization.name}, ${buildShortAddress(args.personUK.organization.address)}.`;
+    case 'self-employed':
+      return `I am self-employed and work at ${args.personUK.organization.name}, ${buildShortAddress(args.personUK.organization.address)}.`;
+    case 'student':
+      return `I am a student at ${args.personUK.organization.name}, ${buildShortAddress(args.personUK.organization.address)}.`;
+    case 'retired':
+      return 'I am retired.';
+    case 'unemployed':
+      return 'I am currently unemployed.';
+    case 'other':
+      return args.personUK.organization.name ? 
+        `I am associated with ${args.personUK.organization.name}, ${buildShortAddress(args.personUK.organization.address)}.` : 
+        '';
+    default:
+      return '';
+  }
+}
+
 function buildText(args: UnitOf<typeof pdfGenerateRequired>): string {
   return `
     Dear Visa Officer,
-I would like to confirm that my ${
-    args.personOutsideUK.relationship
-  }, ${args.personOutsideUK.fullName}, will apply for a UK Visitor visa. ${parsePronoun(
-    args.personOutsideUK.pronoun,
-    1
+I would like to confirm that my ${args.personOutsideUK.relationship}, ${
+    args.personOutsideUK.fullName
+  }, will apply for a UK Visitor visa. ${capitalize(
+    parsePronoun(args.personOutsideUK.pronoun, 1)
   )} will travel to the United Kingdom from ${args.trip.arrivalDate?.format(
     dateFormat
   )} until ${args.trip.departureDate?.format(dateFormat)} for ${
@@ -99,9 +120,9 @@ I would like to confirm that my ${
   }.
 ${addIfElse(
   args.trip.accomodation,
-  `I am able to accommodate ${
-    extractShortNames(args.personOutsideUK.fullName)
-  } at my place, ${buildShortAddress(args.personUK.address)}.`,
+  `I am able to accommodate ${extractShortNames(
+    args.personOutsideUK.fullName
+  )} at my place, ${buildShortAddress(args.personUK.address)}.`,
   ''
 )}
 ${addIfElse(
@@ -142,12 +163,10 @@ ${addIfElse(
   ''
 )}
 
-I am currently employed at ${args.personUK.employer.name}, ${buildShortAddress(
-    args.personUK.employer.address
-  )}.
+${buildStatusText(args)}
 
 I have enclosed the following documents:
-  * residence permit;
+  * eVisa information;
   * employment reference;
   ${addIfElse(args.trip.financialSupport, '* latest payslip', '')}
   * proof of address
