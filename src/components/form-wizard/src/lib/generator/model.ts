@@ -106,6 +106,11 @@ function buildStatusText(args: UnitOf<typeof pdfGenerateRequired>): string {
   }
 }
 
+function buildAdditionalDocuments(args: UnitOf<typeof pdfGenerateRequired>): string {
+  return args.additionalDocumentsList.split(',').filter(Boolean).map(document => ' * ' + document).join(`
+    `);
+}
+
 function buildText(args: UnitOf<typeof pdfGenerateRequired>): string {
   return `
     Dear Visa Officer,
@@ -170,6 +175,7 @@ I have enclosed the following documents:
   * employment reference;
   ${addIfElse(args.trip.financialSupport, '* latest payslip', '')}
   * proof of address
+  ${buildAdditionalDocuments(args)}
 
 Should you wish to discuss this application further, please do not hesitate to contact me.
 `;

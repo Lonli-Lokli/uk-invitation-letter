@@ -434,6 +434,23 @@ export const FormWizard: React.FC = () => {
                       </Grid>
 
                       <Grid item xs={12}>
+                        <Field
+                          as={TextField}
+                          fullWidth
+                          required
+                          name="additionalDocumentsList"
+                          label="Additional documents from host"
+                          placeholder="Use comma to separate documents"
+                          helperText="For multiple documents, separate them with commas"
+                          sx={{
+                            '& .MuiInputBase-input': {
+                              fontSize: { xs: '0.875rem', sm: '1rem' },
+                            },
+                          }}
+                        />
+                      </Grid>
+
+                      <Grid item xs={12}>
                         <Box
                           sx={{
                             mt: { xs: 2, sm: 3 },

@@ -38,4 +38,5 @@ export interface FormValues {
     financialSupport: boolean;
     accomodation: boolean;
   };
+  additionalDocumentsList: string;
 }

@@ -48,6 +48,7 @@ export const initialValues: FormValues = {
     accomodation: false,
     financialSupport: false,
   },
+  additionalDocumentsList: ''
 };
 
 // events
