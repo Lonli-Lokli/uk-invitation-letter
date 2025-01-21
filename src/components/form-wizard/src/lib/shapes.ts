@@ -36,7 +36,7 @@ export interface FormValues {
     returnReason: string;
     returnCountry: string | null;
     financialSupport: boolean;
-    accomodation: boolean;
+    accommodation: boolean;
   };
   additionalDocumentsList: string;
 }

@@ -45,7 +45,7 @@ export const initialValues: FormValues = {
     reason: '',
     returnReason: '',
     returnCountry: null,
-    accomodation: false,
+    accommodation: false,
     financialSupport: false,
   },
   additionalDocumentsList: ''

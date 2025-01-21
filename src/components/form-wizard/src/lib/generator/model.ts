@@ -107,11 +107,11 @@ function buildStatusText(args: UnitOf<typeof pdfGenerateRequired>): string {
 }
 
 function buildAdditionalDocuments(args: UnitOf<typeof pdfGenerateRequired>): string {
-  return args.additionalDocumentsList.split(',').filter(Boolean).map(document => ' * ' + document).join(`
-    `);
+  return args.additionalDocumentsList.split(',').filter(Boolean).map(document => '*' + document).join(`
+  `);
 }
 
-function buildText(args: UnitOf<typeof pdfGenerateRequired>): string {
+export function buildText(args: UnitOf<typeof pdfGenerateRequired>): string {
   return `
     Dear Visa Officer,
 I would like to confirm that my ${args.personOutsideUK.relationship}, ${
@@ -124,7 +124,7 @@ I would like to confirm that my ${args.personOutsideUK.relationship}, ${
     args.trip.reason
   }.
 ${addIfElse(
-  args.trip.accomodation,
+  args.trip.accommodation,
   `I am able to accommodate ${extractShortNames(
     args.personOutsideUK.fullName
   )} at my place, ${buildShortAddress(args.personUK.address)}.`,
@@ -172,9 +172,9 @@ ${buildStatusText(args)}
 
 I have enclosed the following documents:
   * eVisa information;
-  * employment reference;
+  * proof of address;
+  ${addIfElse(args.personUK.status === 'employed', '* employment reference', '')}
   ${addIfElse(args.trip.financialSupport, '* latest payslip', '')}
-  * proof of address
   ${buildAdditionalDocuments(args)}
 
 Should you wish to discuss this application further, please do not hesitate to contact me.

@@ -54,7 +54,7 @@ const PanelHeader = ({
     >
       {title}
     </Typography>
-    <Tooltip title={tooltip}>
+    <Tooltip title={tooltip} enterTouchDelay={0}>
       <IconButton size="small" sx={{ p: 0.5 }}>
         <HelpOutlineIcon fontSize="small" />
       </IconButton>
@@ -188,7 +188,7 @@ export const FormWizard: React.FC = () => {
                           <Field
                             as={TextField}
                             fullWidth
-                            required
+                            required={['student', 'employed'].includes(values.personUK.status)}
                             name="personUK.organization.name"
                             label={
                               values.personUK.status === 'student'
@@ -437,7 +437,6 @@ export const FormWizard: React.FC = () => {
                         <Field
                           as={TextField}
                           fullWidth
-                          required
                           name="additionalDocumentsList"
                           label="Additional documents from host"
                           placeholder="Use comma to separate documents"
@@ -462,7 +461,7 @@ export const FormWizard: React.FC = () => {
                           <FormControlLabel
                             control={
                               <Switch
-                                checked={values.trip.accomodation}
+                                checked={values.trip.accommodation}
                                 onChange={(e) =>
                                   setFieldValue(
                                     'trip.accommodation',
